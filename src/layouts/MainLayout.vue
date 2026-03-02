@@ -7,14 +7,14 @@
       class="hidden md:flex w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-col sticky top-0 h-screen"
     >
       <div class="p-6">
-        <div class="flex items-center space-x-3 mb-10">
+        <div class="flex items-center space-x-3 mb-12 px-2">
           <div
-            class="w-10 h-10 flex items-center justify-center transform -rotate-2"
+            class="w-10 h-10 flex items-center justify-center transform -rotate-3"
           >
-            <img src="/logo.png" alt="KyroTask Logo" class="w-full h-full object-contain drop-shadow-md" />
+            <img src="/logo.png" alt="KyroTask Logo" class="w-full h-full object-contain drop-shadow-xl" />
           </div>
           <span
-            class="text-xl font-bold text-slate-800 dark:text-white tracking-tight"
+            class="text-2xl font-black text-slate-800 dark:text-white tracking-tighter"
             >KyroTask</span
           >
         </div>
@@ -24,14 +24,14 @@
             v-for="item in navItems"
             :key="item.path"
             :to="item.path"
-            class="flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 group"
+            class="flex items-center space-x-3 px-4 py-3.5 rounded-2xl transition-all duration-300 group"
             :class="[
               $route.path === item.path
-                ? 'bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 font-semibold'
-                : 'text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200',
+                ? 'bg-indigo-600 dark:bg-indigo-500 text-white shadow-[0_8px_20px_-6px_rgba(99,102,241,0.6)] font-bold'
+                : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-800 dark:hover:text-slate-200 font-medium',
             ]"
           >
-            <component :is="item.icon" class="w-5 h-5" />
+            <component :is="item.icon" class="w-5 h-5 transition-transform group-hover:scale-110" />
             <span>{{ item.name }}</span>
           </RouterLink>
         </nav>
@@ -320,9 +320,3 @@ const mobileNavItems = [
   { name: "Calendar", path: "/calendar", icon: IconCalendar },
 ];
 </script>
-
-<style scoped>
-.router-link-active {
-  color: #4f46e5;
-}
-</style>
